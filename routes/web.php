@@ -17,7 +17,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/empresa', function(){
+Route::prefix('admin')->group(function(){
+    Route::get('dashboard', function(){
+        return "dashboard";
+    });
+    
+    Route::get('users', function(){
+        return "users";
+    });
+    
+    Route::get('clientes', function(){
+        return "clientes";
+    });
+});
+
+
+/*Route::get('/empresa', function(){
     return view('site/empresa');
 });
 
@@ -36,3 +51,13 @@ Route::get('/produto/{id}/{cat}', function($id, $cat = ''){
 
 Route::redirect('/sobre', '/empresa');
 Route::view('/empresa', 'site/empresa');
+
+Route::get('/news', function(){
+    return view('news');
+})->name('noticias');
+
+Route::get('/novidades', function(){
+    return redirect()->route('noticias');
+});*/
+
+//rotas nomeadas, grupos de rotas
