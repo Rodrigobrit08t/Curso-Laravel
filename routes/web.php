@@ -13,11 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
-Route::prefix('admin')->group(function(){
+Route::get('/', [ProdutoController::class, 'index']);->name('produto.index')
+
+Route::get('/produto/{id?}', [ProdutoController::class, 'show'])->name("produto.show");
+
+
+
+/*Route::prefix('admin')->group(function(){
     Route::get('dashboard', function(){
         return "dashboard";
     });
@@ -29,7 +35,7 @@ Route::prefix('admin')->group(function(){
     Route::get('clientes', function(){
         return "clientes";
     });
-});
+});*/
 
 
 /*Route::get('/empresa', function(){
@@ -59,5 +65,3 @@ Route::get('/news', function(){
 Route::get('/novidades', function(){
     return redirect()->route('noticias');
 });*/
-
-//rotas nomeadas, grupos de rotas
