@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProdutoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +18,7 @@ use Illuminate\Support\Facades\Route;
     return view('welcome');
 });*/
 
-Route::get('/', [ProdutoController::class, 'index']);->name('produto.index')
-
-Route::get('/produto/{id?}', [ProdutoController::class, 'show'])->name("produto.show");
-
+Route::resource('produtos', ProdutoController::class);
 
 
 /*Route::prefix('admin')->group(function(){
